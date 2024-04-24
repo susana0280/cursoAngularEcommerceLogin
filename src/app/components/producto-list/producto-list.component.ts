@@ -24,7 +24,7 @@ export class ProductoListComponent implements OnInit, OnDestroy {
 
   this.productSub= this.apiService.getAllproduct().subscribe({
    
-      next:(product:Iproducts[])=>{this.products=product, console.log(this.products)},
+      next:(product:Iproducts[])=>{this.products=product},
       error:(error:any)=>{console.error(error)},
       complete:()=>{console.log('completado')}
     

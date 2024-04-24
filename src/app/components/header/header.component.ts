@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { UseServiceService } from '../../services/use-service.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -7,4 +10,17 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  constructor(private userService:UseServiceService,private router:Router){
+
+  }
+
+  logOut(){
+    this.userService.logout()
+    .then(()=> {
+                    this.router.navigate(['/'])
+                     alert('ha salido de sesion')}
+  )
+    .catch(error=>console.error(error))
+  
+  }
 }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UseServiceService } from '../../../services/use-service.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-signup',
@@ -12,7 +14,7 @@ export class SignupComponent {
   registerForm:FormGroup=new FormGroup({})
 
 
-  constructor(private fb:FormBuilder,private userService:UseServiceService){
+  constructor(private fb:FormBuilder,private userService:UseServiceService,private router:Router){
 
     this.registerForm=this.fb.group({
 
@@ -31,10 +33,10 @@ export class SignupComponent {
 
     e.preventDefault()
 
-    
     if(this.registerForm.invalid){
       return
     }
+
     console.log(this.registerForm)
 
     let body={
@@ -43,7 +45,11 @@ export class SignupComponent {
     }
 
       this.userService.register(body)
-      .then(response=> console.log(response))
-      .catch(error=>console.log(error))
+        .then(response=> {
+          
+                  console.log(response),
+                  this.router.navigate(['/signin'])
+                         })
+       .catch(error=>console.log(error))
   }
 }
