@@ -1,0 +1,26 @@
+
+
+.container {
+    text-align: center; /* Alinea los contenedores en el centro de la página */
+    width: 250px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    height: 300px;
+    border: 1px solid black;
+   
+  }
+  
+  .box {
+    width: 100px;
+    height: 100px;
+     display: inline-block; /* Alínea los contenedores en una fila */
+    margin: 1px;/* Espacio entre los contenedores*/
+    
+  }
+
+  .imagen{
+  
+max-width: 100%;
+max-height: 100%;
+
+}

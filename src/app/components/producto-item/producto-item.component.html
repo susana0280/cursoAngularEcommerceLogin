@@ -1,0 +1,14 @@
+<div class="lg:w-4/4 md:w-4/4 p-4 w-full container" >
+
+  <a class="block relative h-48 rounded overflow-hidden box" [routerLink]="['producto',productItem?.id]">
+      <img alt="ecommerce" class="object-cover object-center w-full h-full block"   src="{{productItem?.image}}"   >
+    </a>
+    <div class="mt-4" box >
+            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{productItem?.category}}</h3>
+      <h2 class="text-gray-900 title-font text-lg font-medium" style="font-size: smaller;">
+        {{productItem?.title?.substring(0,20) }} {{productItem?.title?.substring(21) ? "..." :"undefined"}}
+      
+      </h2>
+      <p class="mt-1">{{productItem?.price | currency}}</p>
+    </div>
+  </div>

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ecommerceAngular": {
+    "ecommerceangular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -63,7 +63,13 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -72,18 +78,21 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ecommerceAngular:build:production"
+              "buildTarget": "ecommerceangular:build:production"
             },
             "development": {
-              "buildTarget": "ecommerceAngular:build:development"
+              "buildTarget": "ecommerceangular:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "disableHostCheck": true
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "ecommerceAngular:build"
+            "buildTarget": "ecommerceangular:build"
           }
         },
         "test": {
@@ -103,8 +112,28 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "ecommerceangular:build:production",
+              "serveTarget": "ecommerceangular:serve:production"
+            },
+            "development": {
+              "buildTarget": "ecommerceangular:build:development",
+              "serveTarget": "ecommerceangular:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "30f2d76a-2e94-4b5b-a215-e6ca79e43dc3"
   }
 }

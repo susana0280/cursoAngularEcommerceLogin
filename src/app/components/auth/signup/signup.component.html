@@ -1,0 +1,80 @@
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+      <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+        <h1 class="title-font font-medium text-3xl text-gray-900">Slow-carb next level shoindcgoitch ethical authentic, poko scenester</h1>
+        <p class="leading-relaxed mt-4">Poke slow-carb mixtape knausgaard, typewriter street art gentrify hammock starladder roathse. Craies vegan tousled etsy austin.</p>
+      </div>
+      <form (submit)="register($event)" [formGroup]="registerForm" class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+      
+        <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Registrarse</h2>
+        <div class="relative mb-4">
+          <label for="fullName" class="leading-7 text-sm text-gray-600">Nombre Completo</label>
+          <input formControlName="fullName"   type="text" id="fullName" name="fullName" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+     
+            <div  *ngIf="this.registerForm.controls['fullName'].invalid &&
+                 ( this.registerForm.controls['fullName'].dirty ||
+                 this.registerForm.controls['fullName'].touched) ">
+
+            <div class="text-danger"  *ngIf="this.registerForm.controls['fullName'].errors">
+              Nombre invalido
+            
+            </div>
+          
+            </div>
+     
+     
+     
+        </div>
+        <div class="relative mb-4">
+            <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+            <input  formControlName="email" type="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+       
+       
+            <div  *ngIf="this.registerForm.controls['email'].invalid &&
+                 ( this.registerForm.controls['email'].dirty ||
+                 this.registerForm.controls['email'].touched) ">
+
+            <div class="text-danger"  *ngIf="this.registerForm.controls['email'].errors">
+              Email invalido
+            
+            </div>
+          
+            </div>
+          </div>
+        <div class="relative mb-4">
+          <label for="password" class="leading-7 text-sm text-gray-600">Contraseña</label>
+          <input autocomplete="off"  formControlName="password" type="password" id="password" name="password" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+      
+          <div  *ngIf="this.registerForm.controls['password'].invalid &&
+          ( this.registerForm.controls['password'].dirty ||
+          this.registerForm.controls['password'].touched) ">
+
+         <div class="text-danger"  *ngIf="this.registerForm.controls['password'].errors">
+            Password invalido
+         </div>
+          </div>
+      
+      
+      
+      
+        </div>
+        <div class="relative mb-4">
+            <label for="passwordRep" class="leading-7 text-sm text-gray-600">Confirmar contraseña</label>
+            <input autocomplete="off" formControlName="passwordRep"  type="password" id="confirmPassword" name="passwordRep" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          
+          <div  *ngIf="this.registerForm.controls['passwordRep'].invalid &&
+          ( this.registerForm.controls['passwordRep'].dirty ||
+          this.registerForm.controls['passwordRep'].touched) ">
+
+         <div class="text-danger"  *ngIf="this.registerForm.controls['passwordRep'].errors">
+            La contraseña no coincide es inválida
+         </div>
+          </div>
+       
+          </div>
+        <button class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Registrar</button>
+        <p class="text-xs text-gray-500 mt-3">Literally you probably haven't heard of them jean shorts.</p>
+ 
+    </form>
+    </div>
+  </section>
